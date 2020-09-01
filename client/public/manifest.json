@@ -1,5 +1,5 @@
 {
-  "short_name": "Money App",
+  "short_name": "JDB App",
   "name": "JDB App PWA",
   "icons": [
     {
@@ -9,7 +9,7 @@
       "purpose": "maskable"
     }
   ],
-  "start_url": ".",
+  "start_url": "./",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"  
