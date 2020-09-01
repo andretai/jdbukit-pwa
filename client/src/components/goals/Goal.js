@@ -71,15 +71,20 @@ class Goal extends Component {
             </div>
           </div>
           <p className="py-3 uppercase text-center">goals</p>
-          <ol className="list-none">
-            {
-              goals.map(({ _id, goal, amount, status, date }) => (
-                <li key={_id}>
-                  <Row clickedDelete={this.clickedDelete} goal={ { _id, goal, amount, status, date } } goals={ goals }/>
-                </li>
-              ))
-            }
-          </ol>
+          {
+            goals ? 
+            <ol className="list-none">
+              {
+                goals.map(({ _id, goal, amount, status, date }) => (
+                  <li key={_id}>
+                    <Row clickedDelete={this.clickedDelete} goal={ { _id, goal, amount, status, date } } goals={ goals }/>
+                  </li>
+                ))
+              }
+            </ol>
+            :
+            <p>Set up a goal by clicking the '+Goal' button.</p>
+          }
         </div>
       </div>
     );

@@ -85,7 +85,7 @@ class Entry extends Component {
             { goals[0].amount.toFixed(2) }
           </p>
           :
-          <p>You have not set up a goal.</p>
+          <p>0.00</p>
         }
       </div>
     );
@@ -132,7 +132,16 @@ class Entry extends Component {
               </div>
             ))}
             {
-              this.state.page === 2 ? <GoalRow entry={ entries } saved={ entries.length === 0 ? '' : entries.reduce((sum, item) => sum + item.saved, 0).toFixed(2) } goal={ goals.find(goal => goal.status === false) }/> : null
+              this.state.page === 2 ? 
+              <div>
+                {
+                  goals.length !== 0 ?
+                    <GoalRow entry={ entries } saved={ entries.length === 0 ? '' : entries.reduce((sum, item) => sum + item.saved, 0).toFixed(2) } goal={ goals.find(goal => goal.status === false) }/>
+                  :
+                  null
+                }
+              </div> 
+              : null
             } 
           </ol>
         </div>
