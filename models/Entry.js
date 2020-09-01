@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const entrySchema = new Schema({
+  userId: { type: String, required: true },
   type: { type: String, required: true },
   spent: { type: Number, required: true },
   saved: { type: Number, required: true },

@@ -1,4 +1,4 @@
-import { GET_ENTRIES, ADD_ENTRY, DELETE_ENTRY, ENTRIES_LOADING } from '../actions/types';
+import { GET_ENTRIES, ADD_ENTRY, UPDATE_ENTRY, DELETE_ENTRY, ENTRIES_LOADING } from '../actions/types';
 
 const initialState = {
   entries: [],
@@ -16,7 +16,15 @@ export default function(state = initialState, action) {
     case ADD_ENTRY:
       return {
         ...state,
-        entries: [...state.entries, action.payload]
+        entries: [action.payload, ...state.entries]
+      };
+    case UPDATE_ENTRY:
+      return {
+        ...state,
+        entries: state.entries.map(entry => {
+          if(entry._id === action.payload._id) return action.payload;
+          return entry;
+        })
       };
     case DELETE_ENTRY:
       return {

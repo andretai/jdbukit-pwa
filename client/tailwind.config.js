@@ -6,10 +6,10 @@ module.exports = {
   separator: ':',
   theme: {
     screens: {
-      sm: '640px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1280px',
+      'sm': {'max': '640px'},
+      'md': {'min': '641px', 'max': '1007px'},
+      'lg': {'min': '1008px', 'max': '1366px'},
+      'xl': {'min': '1367px'}
     },
     colors: {
       transparent: 'transparent',
@@ -149,6 +149,15 @@ module.exports = {
       '48': '12rem',
       '56': '14rem',
       '64': '16rem',
+      '72': '18rem',
+      '80': '20rem',
+      '88': '22rem',
+      '96': '24rem',
+      '100': '25rem',
+      '104': '26rem',
+      '112': '28rem',
+      '120': '30rem',
+      '128': '32rem'
     },
     backgroundColor: theme => theme('colors'),
     backgroundImage: {
@@ -371,6 +380,8 @@ module.exports = {
       '25': '0.25',
       '50': '0.5',
       '75': '0.75',
+      '80': '0.8',
+      '90': '0.9',
       '100': '1',
     },
     order: {

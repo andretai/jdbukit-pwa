@@ -1,0 +1,4 @@
+{
+  "mongoUri": "mongodb+srv://jdbukit_admin:jdbukit_pass@cluster0.u2qmx.mongodb.net/db0?retryWrites=true&w=majority",
+  "jwtSecret": "my_jdb_token"  
+}

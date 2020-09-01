@@ -1,80 +1,65 @@
 import React, { Component } from 'react';
 
-import { Provider } from 'react-redux';
-import store from './store';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
+import './App.css';
+
+import Nav from './root/Nav';
+import Side from './root/Side';
+import Home from './root/Home';
 import Entry from './components/entries/Entry';
-import Form from './components/entries/Form';
+import Goal from './components/goals/Goal';
+import Dash from './components/dash/Dash';
 
 class App extends Component {
-  // state = {
-  //   entries: [],
-  //   type: '',
-  //   spent: 0,
-  //   saved: 0,
-  //   sum: 0
-  // }
-  // getEntries() {
-  //   axios.get('/api/entries')
-  //     .then(res => {
-  //       res.data.forEach(entry => {
-  //         this.setState({
-  //           entries: [...this.state.entries, FORMAT_ENTRY(entry)],
-  //           sum: this.state.sum + entry.saved
-  //         });
-  //       });
-  //     })
-  //     .catch(err => console.log(err));
-  // }
-  // setSpent = ( newValue ) => {
-  //   let spent = newValue;
-  //   let saved = 0;
-  //   if (spent > 1) {
-  //     saved = 1 - (spent - Math.trunc(spent));
-  //   } else {
-  //     saved = 1 - spent;
-  //   }
-  //   this.setState({
-  //     spent: spent,
-  //     saved: saved
-  //   });
-  // }
-  // submitForm = () => {
-  //   const entry = {
-  //     type: this.state.type,
-  //     spent: this.state.spent,
-  //     saved: this.state.saved
-  //   }
-  //   axios.post('/api/entries/add', entry)
-  //     .then(res => {
-  //       this.setState({
-  //         entries: [...this.state.entries, FORMAT_ENTRY(res.data)],
-  //         sum: this.state.sum + entry.saved
-  //       });
-  //     })
-  //     .catch(err => console.log(err));
-  // }
+  state = {
+    page: 2
+  }
+  static propTypes = {
+    auth: PropTypes.object.isRequired
+  }
+  switchPage = num => {
+    this.setState({ page: num });
+  }
   render() {
+    const { isAuthenticated } = this.props.auth;
     return (
-      <Provider store={store}>
-        <Entry/>
-        <Form />
-      </Provider>
-      // <div>
-      //   <p>JdBukit.com</p>
-      //   {/* <p>Sum: { this.state.sum }</p>
-      //   <ol>
-      //     {this.state.entries}
-      //   </ol>
-      //   <label htmlFor="type">Type:</label>
-      //   <input type="text" name="type" value={ this.state.type } onChange={ (e) => this.setState({ type: e.target.value }) }></input>
-      //   <label htmlFor="spent">Spent</label>
-      //   <input type="number" name="spent" value={ this.state.spent } onChange={ (e) => this.setSpent(e.target.value) } ></input>
-      //   <button type="submit" onClick={ this.submitForm }>Add</button> */}
-      //   <Entry />
-      // </div>
+      <div>
+          {
+            isAuthenticated ? 
+            <div className="app">
+              <Nav/>
+              <div className="flex">
+                <div className="w-1/6">
+                  <Side switchPage={ this.switchPage }/>
+                </div>
+                <div className="w-5/6">
+                  {
+                    this.state.page === 0 ? <Entry/> : null
+                  }
+                  {
+                    this.state.page === 1 ? <Goal/> : null
+                  }
+                  {
+                    this.state.page === 2 ? <Dash/> : null
+                  }
+                </div>
+              </div>
+            </div> 
+            : 
+            <div>
+              <Nav/>
+              <Home/>
+            </div>
+          }
+      </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  auth: state.auth 
+});
+
+export default connect(mapStateToProps, {})(App);
