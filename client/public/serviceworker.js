@@ -1,36 +1,36 @@
-const CACHE_NAME = 'version-1.0';
-const urlsToCache = ['index.html', 'offline.html'];
+const CACHE_NAME = 'v1.0';
+const filesToCache = ['index.html', 'offline.html'];
 
 const self = this;
 
-// Installation
-self.addEventListener('install', event => {
-  event.waitUntil(
+// Install
+self.addEventListener('install', e => {
+  e.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
+        console.log('cache opened');
+        return cache.addAll(filesToCache);
       })
-      // .catch(err => console.log(err))   
+      .catch(err => console.log('install error: ', err))
   )
 });
 
-// Listen for requests
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
+// Fetch
+self.addEventListener('fetch', e => {
+  e.respondWith(
+    caches.match(e.request)
       .then(() => {
-        return fetch(event.request).catch(() => caches.match('offline.html'));
+        return fetch(e.request).catch(() => caches.match('offline.html'));
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log('fetch error: ', err))
   )
 });
 
-// Activate service worker
-self.addEventListener('activate', event => {
+// Activate
+self.addEventListener('activate', e => {
   const cacheWhitelist = [];
   cacheWhitelist.push(CACHE_NAME);
-  event.waitUntil(
+  e.waitUntil(
     caches.keys().then(cacheNames => Promise.all(
       cacheNames.map(cacheName => {
         if(!cacheWhitelist.includes(cacheName)) {
@@ -38,6 +38,6 @@ self.addEventListener('activate', event => {
         }
       })
     ))
-    .catch(err => console.log(err))
+    .catch(err => console.log('activate error: ', err))
   )
 });
