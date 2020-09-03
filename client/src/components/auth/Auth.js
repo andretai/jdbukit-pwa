@@ -61,6 +61,8 @@ class Auth extends Component {
   }
 
   render() {
+    // CSS
+    const button = "w-1/2 mx-3 px-2 py-1 border border-gray-200 rounded-full shadow-sm text-white"
     const { isAuthenticated } = this.props.auth;
     // const LoggedIn = (
     //   <div>
@@ -72,19 +74,21 @@ class Auth extends Component {
     //   </div>
     // );
     const NotLoggedIn = (
-      <div>
-        <button onClick={ () => {
-          this.setState({ clickedLogin: true })
-          this.props.clearErrors()
-        } }>Login</button>
-        <button onClick={ () => {
-          this.setState({ clickedRegister: true })
-          this.props.clearErrors()
-        } } className="ml-6">Register</button>
+      <div className="">
+        <div className="flex w-full py-6 text-base">
+          <button onClick={ () => {
+            this.setState({ clickedLogin: true })
+            this.props.clearErrors()
+          } } className={button + ' bg-green-500'}>Login</button>
+          <button onClick={ () => {
+            this.setState({ clickedRegister: true })
+            this.props.clearErrors()
+          } } className={button + ' bg-blue-500'}>Register</button>
+        </div>
         {/* Login form */}
         {
           this.state.clickedLogin ?
-          <div className="text-gray-900">
+          <div className="absolute top-0 my-12 text-gray-900">
             <button onClick={ () => {
                 this.setState({ clickedLogin: false })
                 this.props.clearErrors()
@@ -140,7 +144,7 @@ class Auth extends Component {
         {/* Register form */}
         {
           this.state.clickedRegister ?
-          <div className="text-gray-900">
+          <div className="absolute top-0 my-12 text-gray-900">
             <button onClick={ () => {
                 this.setState({ clickedRegister: false })
                 this.props.clearErrors()

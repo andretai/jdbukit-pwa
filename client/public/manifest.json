@@ -1,15 +1,45 @@
 {
   "short_name": "JDB App",
-  "name": "JDB App PWA",
+  "name": "JDB Finance PWA",
   "icons": [
     {
-      "src": "/assets/images/jar.png",
+      "src": "/assets/images/money512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
+    },
+    {
+      "src": "/assets/images/money256.png",
+      "type": "image/png",
+      "sizes": "256x256",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/images/money128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/images/money64.png",
+      "type": "image/png",
+      "sizes": "64x64",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/images/money32.png",
+      "type": "image/png",
+      "sizes": "32x32",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/assets/images/money16.png",
+      "type": "image/png",
+      "sizes": "16x16",
+      "purpose": "maskable"
     }
   ],
-  "start_url": "./",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"  
