@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "autoprefixer": "^9.8.6",
     "axios": "^0.19.2",
+    "npm-run-all": "^4.1.5",
     "postcss-cli": "^7.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -18,12 +19,14 @@
     "tailwindcss": "^1.7.2"
   },
   "scripts": {
-    "start": "npm run watch:css && react-scripts start",
-    "build": "npm run build:css && react-scripts build",
+    "build:css": "tailwindcss build src/tailwind.css -o src/tailwind.output.css",
+    "watch:css": "chokidar 'src/**/*.css' 'src/**/*.scss' --ignore src/tailwind.output.css -c 'npm run build:css'",
+    "start": "npm-run-all build:css --parallel watch:css start:react",
+    "start:react": "react-scripts start",
+    "prebuild": "run-s build:css",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
-    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
