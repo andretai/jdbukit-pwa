@@ -18,7 +18,8 @@ class Nav extends Component {
           isAuthenticated ? null : 
           <div className="flex justify-between content-center p-6 md:px-32 lg:px-64 xl:px-96 bg-gray-900 text-white">
             <p className="uppercase font-bold leading-tight text-xl">jdb</p>
-            <div>
+            <div className="flex">
+              <a className="mx-3" href="https://github.com/andretai/jdbukit-pwa.git" target="_blank" rel="noopener noreferrer">Github</a>
               <button onClick={() => this.toggleShowInstall()} className="flex justify-between items-center">
                 <svg className="w-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
                 <p>Install</p>
