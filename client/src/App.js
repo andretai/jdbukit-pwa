@@ -25,12 +25,12 @@ class App extends Component {
   render() {
     const { isAuthenticated } = this.props.auth;
     return (
-      <div>
+      <div className="main">
           {
             isAuthenticated ? 
             <div className="app">
               <Nav/>
-              <div className="flex">
+              <div className="content flex">
                 <div className="w-1/6">
                   <Side switchPage={ this.switchPage }/>
                 </div>
@@ -50,7 +50,7 @@ class App extends Component {
             : 
             <div>
               <Nav/>
-              <Home/>
+              <Home />
             </div>
           }
       </div>

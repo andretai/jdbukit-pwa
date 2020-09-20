@@ -7,7 +7,7 @@ export default function Policy(props) {
     <div>
       <button onClick={() => props.toggleShowPolicy()} className="z-40 fixed inset-0 w-full h-full bg-black opacity-50">
       </button>
-      <div className="z-50 fixed top-0 left-0 right-0 m-6 p-6 bg-white rounded-sm font-hairline">
+      <div className="z-50 fixed top-0 left-0 right-0 m-6 p-6 md:mx-32 lg:mx-64 xl:mx-96 bg-white rounded-sm font-hairline">
         <p className="font-semibold text-center text-xl">Privacy Policy</p>
         <ol className="list-decimal mx-3">
           <li className={list_items}>

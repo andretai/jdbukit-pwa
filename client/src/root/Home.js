@@ -29,7 +29,7 @@ class Home extends Component {
       </div>
     );
     const Notloggedin = (
-      <div>
+      <div className="md:px-32 lg:px-64 xl:px-96">
         <div className="px-6 pt-12 text-lg">
           <div className="py-12 border-b border-gray-300">
             <img src="/assets/images/bukit.png" alt="a mountain with clouds" className="w-1/3 mx-auto"/>
@@ -46,7 +46,7 @@ class Home extends Component {
         </div>
         { this.state.showPolicy ? <Policy toggleShowPolicy={this.toggleShowPolicy}/> : null }
         { this.state.showInstall ? <Install toggleShowInstall={this.toggleShowInstall}/> : null }
-        <Foot toggleShowPolicy={this.toggleShowPolicy} toggleShowInstall={this.toggleShowInstall}/>
+        
       </div>
     );
     return (
@@ -57,6 +57,7 @@ class Home extends Component {
           :
           Notloggedin
         }
+        <Foot toggleShowPolicy={this.toggleShowPolicy} toggleShowInstall={this.toggleShowInstall}/>
       </div>
     );
   }

@@ -16,7 +16,7 @@ class Nav extends Component {
       <div>
         {
           isAuthenticated ? null : 
-          <div className="flex justify-between content-center p-6 bg-gray-900 text-white">
+          <div className="flex justify-between content-center p-6 md:px-32 lg:px-64 xl:px-96 bg-gray-900 text-white">
             <p className="uppercase font-bold leading-tight text-xl">jdb</p>
             <div>
               <button onClick={() => this.toggleShowInstall()} className="flex justify-between items-center">

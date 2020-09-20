@@ -7,7 +7,19 @@ module.exports = {
     'public/**/*.html',
   ],
   theme: {
-    extend: {},
+    screens: {
+      'md': '640px',
+      'lg': '1024px',
+      'xl': '1366px'
+    },
+    extend: {
+      spacing: {
+        '96': '24rem',
+        '128': '32rem',
+        '160': '40rem',
+        '256': '64rem'
+      }
+    },
   },
   variants: {},
   plugins: [],

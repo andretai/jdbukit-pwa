@@ -5,7 +5,7 @@ export default function Foot(props) {
   const button = "w-1/2 py-1"
   return (
     <div>
-      <nav className="w-ful px-6 py-3 bg-gray-900 text-white text-xs">
+      <nav className="px-6 py-3 md:px-32 lg:px-64 xl:px-96 bg-gray-900 text-white text-xs">
         <div className="pb-3">
           <p className="pb-3 uppercase font-bold leading-tight text-xl">jdb</p>
           <div className="flex w-full py-3">
