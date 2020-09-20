@@ -28,3 +28,5 @@ npm run dev
   - Zondicons - https://www.zondicons.com/
   - PixelPerfect - https://www.flaticon.com/authors/pixel-perfect
   - Freepik - https://www.flaticon.com/authors/freepik
+- Images
+  - eberhard grossgasteiger - https://www.pexels.com/@eberhardgross
