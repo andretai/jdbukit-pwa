@@ -6,6 +6,14 @@ A MERN stack progressive web application that records changes from each transact
 
 http://jdbukit.herokuapp.com/
 
+**Installation and Setup**
+```
+git clone https://github.com/andretai/jdbukit-pwa.git
+cd jdbukit-pwa
+npm install
+npm run dev
+```
+
 **Tools**
 - MERN Stack
   - Mongodb **_Atlas_** (previously mLab) - https://www.mongodb.com/cloud/atlas
